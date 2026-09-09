@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8BC34A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Top curve of S -->
+  <path d="M140,55 C140,55 145,45 130,40 L75,35 C60,33 45,42 45,58 C45,72 55,80 70,85 L120,95 C140,100 160,108 160,132 C160,158 140,170 115,170 L65,170 C50,170 38,165 38,165" fill="url(#greenGrad)" stroke="none"/>
+  <!-- Green swoosh -->
+  <path d="M115,170 C85,170 60,160 55,140 C50,120 65,110 85,105 L130,92 C150,87 168,78 168,55 C168,30 148,18 125,18 L60,18" fill="none" stroke="#558B2F" stroke-width="8" stroke-linecap="round"/>
+  <!-- Bottom curve of S -->
+  <path d="M60,182 C85,182 110,172 115,152 C120,135 105,125 85,120 L40,108 C20,103 5,95 5,72 C5,48 25,35 50,35 L105,35" fill="#0D1B2A" stroke="none"/>
+</svg>

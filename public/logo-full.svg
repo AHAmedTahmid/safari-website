@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="600" height="150">
+  <defs>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8BC34A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- S Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Top green part -->
+    <path d="M85,10 C100,10 110,20 110,35 C110,50 95,60 80,65 L35,78 C20,82 8,90 8,108 C8,128 25,140 48,140 L100,140" fill="url(#greenGrad)" stroke="none"/>
+    <!-- Bottom navy part -->
+    <path d="M48,140 C30,140 15,130 15,115 C15,100 28,92 45,88 L88,75 C105,70 118,60 118,42 C118,22 100,10 80,10" fill="#0D1B2A" stroke="none"/>
+    <!-- Green swoosh accent -->
+    <path d="M80,145 C55,145 35,135 35,118 C35,102 50,95 70,90 L105,80 C120,76 132,68 132,50 C132,30 115,18 95,18 L50,18" fill="none" stroke="#6B8E23" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  <!-- SAFARI text -->
+  <text x="155" y="105" font-family="Arial Black, Arial, sans-serif" font-size="80" font-weight="900" fill="#0D1B2A" letter-spacing="8">SAFARI</text>
+  <!-- Green triangle accents in A's -->
+  <polygon points="248,85 260,60 272,85" fill="#8BC34A"/>
+  <polygon points="358,85 370,60 382,85" fill="#8BC34A"/>
+  <!-- Tagline line -->
+  <line x1="155" y1="120" x2="560" y2="120" stroke="#8BC34A" stroke-width="1.5"/>
+  <!-- Tagline text -->
+  <text x="155" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#558B2F" letter-spacing="6">INTEGRATED BUSINESS SOLUTIONS</text>
+</svg>
