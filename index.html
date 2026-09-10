@@ -6,57 +6,23 @@
   <title>Safari Integrated Business Solutions | POS, PMS & ERP Software</title>
   <meta name="description" content="Enterprise-grade Point of Sale, Property Management, and ERP systems built to streamline operations and scale your business." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Safari Integrated Business Solutions | POS, PMS & ERP Software" />
-  <meta property="og:description" content="Enterprise-grade Point of Sale, Property Management, and ERP systems built to streamline operations and scale your business." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://safarisolutions.com" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Safari Integrated Business Solutions | POS, PMS & ERP Software" />
-  <meta name="twitter:description" content="Enterprise-grade Point of Sale, Property Management, and ERP systems built to streamline operations and scale your business." />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Vite CSS -->
   <link rel="stylesheet" href="/src/main.css" />
 
   <style>
+    :root {
+      --brand: #6A760C;
+      --brand-dark: #535c09;
+      --brand-light: #f2f4e8;
+    }
     body { font-family: 'Inter', sans-serif; }
 
-    /* Hero gradient orbs */
-    .hero-orb-1 {
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(85,139,47,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero-orb-2 {
-      position: absolute;
-      bottom: -30%;
-      left: -15%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(139,195,74,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    /* Subtle grid pattern */
-    .grid-pattern {
-      background-image: radial-gradient(circle, rgba(85,139,47,0.03) 1px, transparent 1px);
-      background-size: 24px 24px;
+    /* Hero gradient */
+    .hero-gradient {
+      background: linear-gradient(to bottom, var(--brand-light) 0%, #fff 100%);
     }
 
     /* Card hover lift */
@@ -68,18 +34,8 @@
       box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
     }
 
-    /* Gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, #0D1B2A 0%, #558B2F 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Animated underline */
-    .nav-link {
-      position: relative;
-    }
+    /* Nav underline */
+    .nav-link { position: relative; }
     .nav-link::after {
       content: '';
       position: absolute;
@@ -87,98 +43,100 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #558B2F;
+      background: var(--brand);
       transition: width 0.3s ease;
     }
-    .nav-link:hover::after {
-      width: 100%;
+    .nav-link:hover::after { width: 100%; }
+
+    /* Button glow */
+    .btn-glow { transition: box-shadow 0.3s ease; }
+    .btn-glow:hover { box-shadow: 0 10px 25px -5px rgba(106,118,12,0.4); }
+
+    /* Tab content animation */
+    .tab-content { display: none; animation: fadeIn 0.3s ease; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Tab button active state */
+    .tab-btn { transition: all 0.2s ease; }
+    .tab-btn.active { background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .tab-btn.active .tab-icon { background: var(--brand-light); }
+    .tab-btn.active .tab-icon svg { color: var(--brand); }
+    .tab-btn.active h3 { color: #0f172a; }
+
+    /* Timeline dot */
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--brand);
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 2px var(--brand);
     }
 
-    /* Glow effect on primary buttons */
-    .btn-glow {
-      box-shadow: 0 0 0 0 rgba(85,139,47,0.4);
-      transition: box-shadow 0.3s ease;
-    }
-    .btn-glow:hover {
-      box-shadow: 0 0 20px 4px rgba(85,139,47,0.2);
-    }
-
-    /* Stats counter animation */
-    @keyframes countUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .stat-item {
-      animation: countUp 0.6s ease forwards;
-    }
-    .stat-item:nth-child(2) { animation-delay: 0.1s; }
-    .stat-item:nth-child(3) { animation-delay: 0.2s; }
-
-    /* Form input focus ring */
-    .input-focus {
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
+    /* Form focus ring */
+    .input-focus { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
     .input-focus:focus {
-      border-color: #558B2F;
-      box-shadow: 0 0 0 3px rgba(85,139,47,0.1);
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(106,118,12,0.1);
+      outline: none;
     }
 
-    /* Dashboard mockup glow */
+    /* Smooth scroll */
+    section[id] { scroll-margin-top: 80px; }
+
+    /* Dashboard mockup */
     .mockup-glow {
-      box-shadow: 0 25px 50px -12px rgba(13,27,42,0.4), 0 0 40px -10px rgba(85,139,47,0.15);
+      box-shadow: 0 25px 50px -12px rgba(13,27,42,0.4), 0 0 40px -10px rgba(106,118,12,0.15);
     }
 
-    /* Section divider */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(85,139,47,0.2), transparent);
+    /* Floating guest satisfaction */
+    .floating-badge {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    /* Feature icon bounce */
-    .icon-bounce {
-      transition: transform 0.3s ease;
-    }
-    .icon-bounce:hover {
-      transform: scale(1.1);
-    }
+    /* Grayscale logos */
+    .grayscale-logos { transition: filter 0.5s ease; }
+    .grayscale-logos:hover { filter: grayscale(0); }
 
-    /* Smooth scroll offset for fixed header */
-    section[id] {
-      scroll-margin-top: 80px;
-    }
+    /* Form success animation */
+    .fade-in { animation: fadeIn 0.3s ease; }
   </style>
 </head>
-<body class="bg-white text-slate-800 antialiased selection:bg-safari-500 selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
   <!-- NAVIGATION -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center">
-        <img src="/logo-full.png" alt="Safari Integrated Business Solutions" class="h-12 w-auto" />
-      </a>
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center">
+          <img src="/logo-full.png" alt="Safari Integrated Business Solutions" class="h-14 w-auto" />
+        </a>
+      </div>
 
-      <!-- Desktop Links -->
-      <nav class="hidden md:flex items-center gap-1 font-medium text-slate-600 text-sm">
-        <a href="#solutions" class="nav-link px-3 py-2 rounded-lg hover:text-safari-600 transition">Solutions</a>
-        <a href="#features" class="nav-link px-3 py-2 rounded-lg hover:text-safari-600 transition">Why Safari</a>
-        <a href="#about" class="nav-link px-3 py-2 rounded-lg hover:text-safari-600 transition">About</a>
-        <a href="#contact" class="nav-link px-3 py-2 rounded-lg hover:text-safari-600 transition">Contact</a>
-      </nav>
+      <div class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+        <a href="#suite" class="nav-link hover:text-slate-900 transition">Products</a>
+        <a href="#usali" class="nav-link hover:text-slate-900 transition">USALI Compliance</a>
+        <a href="#implementation" class="nav-link hover:text-slate-900 transition">Implementation</a>
+        <a href="#company" class="nav-link hover:text-slate-900 transition">Company</a>
+      </div>
 
-      <!-- Desktop CTA -->
-      <div class="hidden md:flex items-center gap-3">
-        <a href="#demo" class="btn-glow px-5 py-2 rounded-full bg-safari-600 hover:bg-safari-700 text-white font-semibold text-sm transition">
+      <div class="hidden md:flex items-center gap-4">
+        <div class="text-sm font-semibold text-slate-600 hidden lg:block">Sales: +1 (800) 555-0199</div>
+        <a href="#demo" class="btn-glow px-5 py-2.5 rounded-lg text-white font-semibold text-sm transition shadow-sm" style="background-color: var(--brand);">
           Request a Demo
         </a>
       </div>
 
-      <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Open menu">
-        <i data-lucide="menu" class="w-5 h-5 text-slate-700"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-5 h-5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
     </div>
-  </header>
+  </nav>
 
   <!-- MOBILE MENU -->
   <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 md:hidden"></div>
@@ -187,17 +145,17 @@
       <div class="flex items-center justify-between mb-10">
         <img src="/logo-icon.png" alt="Safari" class="h-10 w-auto" />
         <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Close menu">
-          <i data-lucide="x" class="w-5 h-5 text-slate-700"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
         </button>
       </div>
       <nav class="space-y-1">
-        <a href="#solutions" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-safari-50 hover:text-safari-600 font-medium transition">Solutions</a>
-        <a href="#features" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-safari-50 hover:text-safari-600 font-medium transition">Why Safari</a>
-        <a href="#about" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-safari-50 hover:text-safari-600 font-medium transition">About</a>
-        <a href="#contact" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-safari-50 hover:text-safari-600 font-medium transition">Contact</a>
+        <a href="#suite" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium transition">Products</a>
+        <a href="#usali" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium transition">USALI Compliance</a>
+        <a href="#implementation" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium transition">Implementation</a>
+        <a href="#company" class="block px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium transition">Company</a>
       </nav>
       <div class="mt-8 pt-6 border-t border-slate-100">
-        <a href="#demo" class="block text-center py-3 rounded-full bg-safari-600 hover:bg-safari-700 text-white font-semibold text-sm transition">
+        <a href="#demo" class="block text-center py-3 rounded-lg text-white font-semibold text-sm transition shadow-sm" style="background-color: var(--brand);">
           Request a Demo
         </a>
       </div>
@@ -205,424 +163,425 @@
   </div>
 
   <!-- HERO SECTION -->
-  <section class="relative overflow-hidden grid-pattern">
-    <div class="hero-orb-1"></div>
-    <div class="hero-orb-2"></div>
+  <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden hero-gradient">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
 
-    <div class="relative max-w-7xl mx-auto px-6 pt-16 pb-20 lg:pt-24 lg:pb-28">
-      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-        <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-safari-50 border border-safari-200 text-safari-700 text-xs font-semibold tracking-wide uppercase">
-            <span class="w-1.5 h-1.5 rounded-full bg-safari-500 animate-pulse"></span>
-            Integrated Enterprise Ecosystem
-          </div>
-
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-            <span class="text-slate-900">One Platform to </span>
-            <span class="gradient-text">Run, Automate & Scale</span>
-            <span class="text-slate-900"> Your Entire Business.</span>
-          </h1>
-
-          <p class="text-lg text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Mission-critical <strong class="text-slate-700">POS</strong>, <strong class="text-slate-700">PMS</strong>, and <strong class="text-slate-700">ERP</strong> systems designed to connect operations, eliminate bottlenecks, and unlock real-time intelligence.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="#demo" class="btn-glow px-8 py-4 rounded-full bg-safari-600 hover:bg-safari-700 text-white font-bold text-sm transition inline-flex items-center justify-center gap-2">
-              Schedule a Live Demo
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <a href="#solutions" class="px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm border border-slate-200 transition inline-flex items-center justify-center gap-2">
-              Explore Systems
-            </a>
-          </div>
-
-          <div class="flex items-center justify-center lg:justify-start gap-6 pt-4">
-            <div class="flex items-center gap-2 text-xs text-slate-500">
-              <div class="w-8 h-8 rounded-full bg-safari-50 flex items-center justify-center">
-                <i data-lucide="shield-check" class="w-4 h-4 text-safari-600"></i>
-              </div>
-              <span>Cloud & Offline Ready</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs text-slate-500">
-              <div class="w-8 h-8 rounded-full bg-safari-50 flex items-center justify-center">
-                <i data-lucide="layers" class="w-4 h-4 text-safari-600"></i>
-              </div>
-              <span>Multi-Location Sync</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs text-slate-500">
-              <div class="w-8 h-8 rounded-full bg-safari-50 flex items-center justify-center">
-                <i data-lucide="headphones" class="w-4 h-4 text-safari-600"></i>
-              </div>
-              <span>24/7 Support</span>
-            </div>
-          </div>
+      <div class="w-full lg:w-1/2 space-y-8 text-center lg:text-left z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase border border-slate-200" style="background-color: var(--brand-light); color: var(--brand);">
+          <div class="w-2 h-2 rounded-full animate-ping" style="background-color: var(--brand);"></div>
+          Unified Hospitality Enterprise Ecosystem
         </div>
 
-        <!-- Dashboard Mockup -->
-        <div class="lg:col-span-6 relative">
-          <div class="mockup-glow bg-slate-900 p-5 rounded-2xl border border-slate-800 text-white space-y-3">
-            <!-- Title bar -->
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-              </div>
-              <span class="text-[10px] font-mono text-slate-500">Safari Console v3.4</span>
-            </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
+          Engineered to <br class="hidden lg:block"/>
+          <span style="color: var(--brand);">Run, Automate & Scale</span> <br class="hidden lg:block"/>
+          Your Business.
+        </h1>
 
-            <!-- Stats row -->
-            <div class="grid grid-cols-3 gap-2">
-              <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/30">
-                <span class="text-[10px] text-slate-500 uppercase tracking-wider">Revenue</span>
-                <p class="text-lg font-bold text-white mt-1">$142,850</p>
-                <span class="text-[9px] text-emerald-400 font-medium">+18.4%</span>
-              </div>
-              <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/30">
-                <span class="text-[10px] text-slate-500 uppercase tracking-wider">Orders</span>
-                <p class="text-lg font-bold text-white mt-1">1,248</p>
-                <span class="text-[9px] text-emerald-400 font-medium">8 branches</span>
-              </div>
-              <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/30">
-                <span class="text-[10px] text-slate-500 uppercase tracking-wider">Occupancy</span>
-                <p class="text-lg font-bold text-white mt-1">89.4%</p>
-                <div class="mt-1.5 w-full bg-slate-700 h-1 rounded-full overflow-hidden">
-                  <div class="bg-safari-500 h-full rounded-full" style="width: 89.4%"></div>
-                </div>
-              </div>
-            </div>
+        <p class="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          Safari delivers market-leading POS, PMS, and CA-verified USALI ERP systems designed to eliminate silos, boost checkout speed, and unlock real-time executive intelligence.
+        </p>
 
-            <!-- Activity feed -->
-            <div class="space-y-2">
-              <div class="flex items-center gap-3 p-2.5 bg-slate-800/40 rounded-xl border border-slate-700/20">
-                <div class="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-                </div>
-                <div class="flex-1">
-                  <span class="text-[11px] text-slate-300">ERP Financial Ledger Synced</span>
-                </div>
-                <span class="text-[9px] font-mono text-slate-500">Real-Time</span>
-              </div>
-              <div class="flex items-center gap-3 p-2.5 bg-slate-800/40 rounded-xl border border-slate-700/20">
-                <div class="w-7 h-7 rounded-lg bg-safari-500/20 flex items-center justify-center">
-                  <i data-lucide="hotel" class="w-3.5 h-3.5 text-safari-400"></i>
-                </div>
-                <div class="flex-1">
-                  <span class="text-[11px] text-slate-300">PMS Room Allocation Updated</span>
-                </div>
-                <span class="text-[9px] font-mono text-slate-500">2m ago</span>
-              </div>
-              <div class="flex items-center gap-3 p-2.5 bg-slate-800/40 rounded-xl border border-slate-700/20">
-                <div class="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-blue-400"></i>
-                </div>
-                <div class="flex-1">
-                  <span class="text-[11px] text-slate-300">POS Checkout #4892 Completed</span>
-                </div>
-                <span class="text-[9px] font-mono text-slate-500">5m ago</span>
-              </div>
-            </div>
-          </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+          <a href="#demo" class="btn-glow px-8 py-4 rounded-xl text-white font-bold text-base shadow-lg transition flex items-center justify-center gap-2" style="background-color: var(--brand); box-shadow: 0 10px 25px -5px rgba(106,118,12,0.4);">
+            Schedule a Live Demo
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#suite" class="px-8 py-4 rounded-xl bg-white text-slate-700 font-bold text-base border border-slate-200 hover:bg-slate-50 transition flex items-center justify-center gap-2 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            Explore Products
+          </a>
         </div>
 
+        <div class="pt-6 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-xs font-semibold text-slate-500">
+          <div class="flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            256-bit Security
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            Cloud & Offline Ready
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            99.99% Uptime
+          </div>
+        </div>
       </div>
+
+      <!-- Hero Dashboard -->
+      <div class="w-full lg:w-1/2 relative lg:-mr-12">
+        <div class="relative z-10 bg-white p-2 rounded-2xl shadow-2xl border border-slate-100">
+          <div class="bg-slate-900 rounded-xl overflow-hidden aspect-[4/3] flex flex-col text-white">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-900/50">
+              <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              </div>
+              <div class="text-xs font-mono text-slate-400">Safari Management Console</div>
+            </div>
+            <div class="flex-1 p-6 relative">
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                  <div class="text-slate-400 text-xs mb-1">Total Net Revenue</div>
+                  <div class="text-3xl font-bold font-mono">$1,248,500</div>
+                  <div class="text-green-400 text-xs mt-2 flex items-center gap-1">&#8593; +14.2% vs last month</div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                  <div class="text-slate-400 text-xs mb-1">PMS Occupancy</div>
+                  <div class="text-3xl font-bold font-mono">89.4%</div>
+                  <div class="text-green-400 text-xs mt-2 flex items-center gap-1">&#8593; 124 Rooms active</div>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center text-xs text-slate-400 pb-2 border-b border-slate-800">
+                  <span>Recent Audits / USALI Ledger</span>
+                  <span>Status</span>
+                </div>
+                <div class="flex justify-between text-sm items-center">
+                  <span class="text-slate-200">F&B Outlet Sales Sync</span>
+                  <span class="text-xs font-mono text-green-400">Complete</span>
+                </div>
+                <div class="flex justify-between text-sm items-center">
+                  <span class="text-slate-200">Housekeeping Dispatch</span>
+                  <span class="text-xs font-mono text-yellow-400">In Progress</span>
+                </div>
+                <div class="flex justify-between text-sm items-center">
+                  <span class="text-slate-200">Rooms Revenue Posted</span>
+                  <span class="text-xs font-mono text-green-400">Complete</span>
+                </div>
+              </div>
+              <div class="floating-badge absolute -bottom-6 -left-6 bg-white text-slate-900 p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full border-4 flex items-center justify-center font-bold" style="border-color: var(--brand); color: var(--brand);">98%</div>
+                <div>
+                  <div class="font-bold text-sm">Guest Satisfaction</div>
+                  <div class="text-xs text-slate-500">Live sentiment tracking</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -top-10 -right-10 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-20 pointer-events-none" style="background-color: var(--brand);"></div>
+      </div>
+
     </div>
   </section>
 
-  <!-- LOGOS / TRUST BAR -->
-  <section class="py-12 border-y border-slate-100 bg-slate-50/50">
+  <!-- TRUST BAR -->
+  <section class="py-10 border-y border-slate-200 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 grayscale-logos">
+       <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 shrink-0">Trusted Infrastructure</h4>
+       <div class="flex items-center justify-between w-full flex-wrap gap-8 font-semibold text-xl text-slate-500 font-serif">
+         <span>MARITIME</span>
+         <span>Continental</span>
+         <span>CROWN HOTELS</span>
+         <span>The Grand</span>
+         <span>Apex Suites</span>
+       </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SUITE SHOWCASE -->
+  <section id="suite" class="py-24 bg-white relative">
     <div class="max-w-7xl mx-auto px-6">
-      <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8">Trusted by Industry Leaders</p>
-      <div class="flex items-center justify-center gap-12 flex-wrap opacity-40">
-        <span class="text-xl font-bold text-slate-700">HILTON</span>
-        <span class="text-xl font-bold text-slate-700">MARRIOTT</span>
-        <span class="text-xl font-bold text-slate-700">ACCOR</span>
-        <span class="text-xl font-bold text-slate-700">IHG</span>
-        <span class="text-xl font-bold text-slate-700">WYNDHAM</span>
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <h2 class="text-sm font-bold uppercase tracking-widest" style="color: var(--brand);">The Safari Suite</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Tailored Systems for Modern Enterprises</p>
+        <p class="text-lg text-slate-600">Deploy individual modules or unify your enterprise with our integrated suite.</p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-2 md:p-4">
+        <div class="flex flex-col md:flex-row gap-6">
+
+          <!-- Sidebar Tabs -->
+          <div class="w-full md:w-1/3 flex flex-col gap-2">
+            <button class="tab-btn active text-left p-5 rounded-xl border-2 border-transparent" data-tab="pms">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="tab-icon p-2 rounded-lg bg-slate-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hotel text-slate-500"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/><path d="m9 16 .348-.24c1.465-1.013 3.84-1.013 5.304 0L15 16"/><path d="M8 7h.01"/><path d="M16 7h.01"/><path d="M12 7h.01"/><path d="M12 11h.01"/><path d="M16 11h.01"/><path d="M8 11h.01"/><path d="M10 22v-6.5m4 0V22"/></svg>
+                </div>
+                <h3 class="font-bold text-lg text-slate-600">Property Management (PMS)</h3>
+              </div>
+              <p class="text-sm text-slate-500 pl-[52px]">Interactive booking grids, guest folios & housekeeping.</p>
+            </button>
+
+            <button class="tab-btn text-left p-5 rounded-xl border-2 border-transparent" data-tab="pos">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="tab-icon p-2 rounded-lg bg-slate-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils text-slate-500"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                </div>
+                <h3 class="font-bold text-lg text-slate-600">Point of Sale (POS)</h3>
+              </div>
+              <p class="text-sm text-slate-500 pl-[52px]">High-speed F&B billing, KOTs, and offline resilience.</p>
+            </button>
+
+            <button class="tab-btn text-left p-5 rounded-xl border-2 border-transparent" data-tab="erp">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="tab-icon p-2 rounded-lg bg-slate-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard text-slate-500"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                </div>
+                <h3 class="font-bold text-lg text-slate-600">Enterprise Planning (ERP)</h3>
+              </div>
+              <p class="text-sm text-slate-500 pl-[52px]">Centralized accounting, procurement & HR management.</p>
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="w-full md:w-2/3 bg-white border border-slate-200 rounded-xl p-8 shadow-sm flex flex-col justify-between">
+
+            <!-- PMS Tab -->
+            <div class="tab-content active" id="tab-pms">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider mb-2 text-slate-400">Front Desk & Operations</div>
+                  <h3 class="text-2xl font-bold text-slate-900 mb-4">Safari PMS: Master Your Property</h3>
+                  <p class="text-slate-600 leading-relaxed max-w-lg mb-6">
+                    Intuitive room reservation tape, drag-and-drop booking modifications, and instant synchronization with OTA channels. Handles check-ins and split billing with unmatched speed.
+                  </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hotel text-slate-100 hidden sm:block"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/><path d="m9 16 .348-.24c1.465-1.013 3.84-1.013 5.304 0L15 16"/><path d="M8 7h.01"/><path d="M16 7h.01"/><path d="M12 7h.01"/><path d="M12 11h.01"/><path d="M16 11h.01"/><path d="M8 11h.01"/><path d="M10 22v-6.5m4 0V22"/></svg>
+              </div>
+              <ul class="grid sm:grid-cols-2 gap-4 mb-8">
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Drag-and-drop reservation tape</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Express check-in / check-out</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Direct OTA inventory sync</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Live housekeeping dispatch</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Corporate travel desk billing</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Guest history & preferences</li>
+              </ul>
+            </div>
+
+            <!-- POS Tab -->
+            <div class="tab-content" id="tab-pos">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider mb-2 text-slate-400">Food, Beverage & Retail</div>
+                  <h3 class="text-2xl font-bold text-slate-900 mb-4">Safari POS: Ultra-Fast Checkouts</h3>
+                  <p class="text-slate-600 leading-relaxed max-w-lg mb-6">
+                    Built for fine dining, bars, and retail. Ultra-fast billing engine, KOT routing directly to kitchen displays, and an offline-first architecture that survives network outages.
+                  </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils text-slate-100 hidden sm:block"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+              </div>
+              <ul class="grid sm:grid-cols-2 gap-4 mb-8">
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Sub-second receipt generation</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Sub-second KOT routing</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Offline-first network resilience</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Automated ingredient depletion</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Multi-currency handling</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Total integration with PMS</li>
+              </ul>
+            </div>
+
+            <!-- ERP Tab -->
+            <div class="tab-content" id="tab-erp">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-wider mb-2 text-slate-400">Back Office & HR</div>
+                  <h3 class="text-2xl font-bold text-slate-900 mb-4">Safari ERP: Total Executive Control</h3>
+                  <p class="text-slate-600 leading-relaxed max-w-lg mb-6">
+                    Large group and resort management made simple. Centralized supply chain workflow, multi-property inventory, and biometric HR scheduling.
+                  </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard text-slate-100 hidden sm:block"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+              </div>
+              <ul class="grid sm:grid-cols-2 gap-4 mb-8">
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Vendor quotation & purchase workflows</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Store issue & reorder alerts</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Biometric attendance capture</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Automated payroll engine</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Executive KPI dashboards</li>
+                <li class="flex items-center gap-2 text-sm text-slate-700 font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2 flex-shrink-0" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg> Multi-property consolidation</li>
+              </ul>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100">
+              <a href="#demo" class="text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all" style="color: var(--brand);">
+                Request a specialized demo for this module
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CORE SOLUTIONS -->
-  <section id="solutions" class="py-24 lg:py-32">
+  <!-- USALI COMPLIANCE -->
+  <section id="usali" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none" style="background: radial-gradient(circle, var(--brand) 0%, transparent 70%);"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-widest mb-6 border" style="background-color: var(--brand-dark); color: var(--brand-light); border-color: var(--brand);">
+            Financial Integrity
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold mb-6 leading-tight">
+            Built to USALI Standards.<br/>Validated by CAs.
+          </h2>
+          <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+            Most hospitality software treats accounting as an afterthought. Safari is built from the balance sheet up, mapping every transaction natively to the <strong class="text-white">Uniform System of Accounts for the Lodging Industry.</strong>
+          </p>
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div>
+              <div class="flex items-center gap-2 text-white font-bold mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign" style="color: var(--brand);"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+                Audit-Ready
+              </div>
+              <p class="text-sm text-slate-400">Pre-mapped balance sheets and P&L by department for instant CA compliance.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 text-white font-bold mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield" style="color: var(--brand);"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                Enterprise Security
+              </div>
+              <p class="text-sm text-slate-400">Granular role-based access control and end-to-end data encryption across ledgers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl relative">
+          <div class="absolute -top-4 -right-4 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-lg rotate-3">
+            CA Certified Workflow
+          </div>
+          <div class="text-sm text-slate-400 font-mono mb-6">Standardized Departmental Ledger</div>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center p-3 bg-slate-900 rounded border border-slate-700">
+              <span class="text-slate-300 font-medium">4000 Rooms Revenue</span>
+              <span class="text-white font-mono font-bold">$45,000.00</span>
+            </div>
+            <div class="flex justify-between items-center p-3 bg-slate-900 rounded border border-slate-700">
+              <span class="text-slate-300 font-medium">5000 F&B Revenue</span>
+              <span class="text-white font-mono font-bold">$18,250.00</span>
+            </div>
+            <div class="flex justify-between items-center p-3 bg-slate-900 rounded border border-slate-700">
+              <span class="text-slate-300 font-medium">6000 Telecom & Other</span>
+              <span class="text-white font-mono font-bold">$2,100.00</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-slate-700 flex justify-between items-center">
+            <span class="text-slate-400 text-sm">Real-time Gross Operating Profit</span>
+            <span class="text-2xl font-bold font-mono text-green-400">41.2%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPLEMENTATION TIMELINE -->
+  <section id="implementation" class="py-24 bg-slate-50 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-safari-600">The Safari Suite</span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Tailored Systems for Modern Enterprises</h2>
-        <p class="text-slate-500 text-lg">Deploy individual modules or unify your organization with our integrated suite.</p>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-500">Fast-Track Deployment</h2>
+        <p class="text-3xl font-extrabold text-slate-900">Live in 8 Days. Guaranteed.</p>
+        <p class="text-slate-600 leading-relaxed">Unlike legacy systems that take months to deploy, our Go-Live framework ensures your property is fully operational with minimal disruption.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      <div class="grid md:grid-cols-4 gap-4 relative">
+        <div class="hidden md:block absolute top-6 left-0 w-full h-1 bg-slate-200 -z-0"></div>
 
-        <!-- POS -->
-        <div class="card-lift group bg-white rounded-2xl p-8 border border-slate-200 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-safari-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative space-y-5">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-safari-50 to-safari-100 text-safari-600 flex items-center justify-center icon-bounce">
-              <i data-lucide="shopping-cart" class="w-7 h-7"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Safari POS</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">
-              High-speed point of sale for fast-paced retail and hospitality. Fast checkouts, real-time inventory, and multi-currency billing.
-            </p>
-            <ul class="space-y-3 text-sm text-slate-600">
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Lightning-fast barcoding & billing</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Offline mode with cloud auto-sync</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Integrated loyalty & promotions</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Multi-branch stock distribution</li>
-            </ul>
-          </div>
-          <div class="pt-8 relative">
-            <a href="#demo" class="block text-center py-3 px-4 rounded-xl bg-slate-50 hover:bg-safari-600 hover:text-white text-slate-700 font-semibold text-sm transition border border-slate-100">
-              Book POS Demo
-            </a>
-          </div>
+        <div class="relative z-10 pt-4 px-2 text-center md:text-left">
+          <div class="timeline-dot mx-auto md:mx-0 mb-6"></div>
+          <div class="font-mono text-sm font-bold mb-2" style="color: var(--brand);">Day 1-2</div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Discovery & Scope</h4>
+          <p class="text-sm text-slate-600">Master Data Audit, Site Evaluation, and Hardware Infrastructure checks.</p>
         </div>
 
-        <!-- PMS -->
-        <div class="card-lift group bg-white rounded-2xl p-8 border-2 border-safari-500 relative overflow-hidden shadow-lg shadow-safari-500/10">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-safari-50 rounded-bl-full"></div>
-          <span class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-safari-600 text-white rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-safari-600/30">
-            Hospitality Specialist
-          </span>
-          <div class="relative space-y-5 pt-4">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-safari-500 to-safari-600 text-white flex items-center justify-center icon-bounce shadow-lg shadow-safari-600/30">
-              <i data-lucide="hotel" class="w-7 h-7"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Safari PMS</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">
-              Complete property management — reservations, guest profiles, housekeeping, and front-desk operations in one seamless system.
-            </p>
-            <ul class="space-y-3 text-sm text-slate-600">
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Interactive booking grid & calendar</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Housekeeping & maintenance alerts</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Direct guest billing & folio audits</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Instant integration with Safari POS</li>
-            </ul>
-          </div>
-          <div class="pt-8 relative">
-            <a href="#demo" class="block text-center py-3 px-4 rounded-xl bg-safari-600 text-white hover:bg-safari-700 font-semibold text-sm transition shadow-md shadow-safari-600/20">
-              Book PMS Demo
-            </a>
-          </div>
+        <div class="relative z-10 pt-4 px-2 text-center md:text-left">
+          <div class="timeline-dot mx-auto md:mx-0 mb-6"></div>
+          <div class="font-mono text-sm font-bold mb-2" style="color: var(--brand);">Day 3-5</div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Configuration</h4>
+          <p class="text-sm text-slate-600">System Setup, USALI Chart Mapping, and Hardware Parsing.</p>
         </div>
 
-        <!-- ERP -->
-        <div class="card-lift group bg-white rounded-2xl p-8 border border-slate-200 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-safari-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="relative space-y-5">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 text-white flex items-center justify-center icon-bounce">
-              <i data-lucide="cpu" class="w-7 h-7"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Safari ERP</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">
-              Comprehensive operational control — General Ledger, HR & payroll, supply chain, and advanced business intelligence.
-            </p>
-            <ul class="space-y-3 text-sm text-slate-600">
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Full accounting & audit-ready sheets</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Automated supply chain & POs</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Employee shifts, records & payroll</li>
-              <li class="flex items-center gap-3"><div class="w-5 h-5 rounded-full bg-safari-100 flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3 text-safari-600"></i></div> Customizable executive reports</li>
-            </ul>
-          </div>
-          <div class="pt-8 relative">
-            <a href="#demo" class="block text-center py-3 px-4 rounded-xl bg-slate-50 hover:bg-safari-600 hover:text-white text-slate-700 font-semibold text-sm transition border border-slate-100">
-              Book ERP Demo
-            </a>
-          </div>
+        <div class="relative z-10 pt-4 px-2 text-center md:text-left">
+          <div class="timeline-dot mx-auto md:mx-0 mb-6"></div>
+          <div class="font-mono text-sm font-bold mb-2" style="color: var(--brand);">Day 6-7</div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Staff Enablement</h4>
+          <p class="text-sm text-slate-600">Dedicated training for Front-Desk, Kitchen, and Accounts teams.</p>
+        </div>
+
+        <div class="relative z-10 pt-4 px-2 text-center md:text-left">
+          <div class="timeline-dot mx-auto md:mx-0 mb-6"></div>
+          <div class="font-mono text-sm font-bold mb-2" style="color: var(--brand);">Day 8+</div>
+          <h4 class="text-lg font-bold text-slate-900 mb-2">Go-Live & Support</h4>
+          <p class="text-sm text-slate-600">System Launch backed by our 24/7/365 Standby Engineering Desk.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section id="features" class="py-24 lg:py-32 bg-slate-900 text-white relative overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-safari-500/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="relative max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-safari-400">Enterprise Reliability</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Why Businesses Choose Safari</h2>
-        <p class="text-slate-400">Built for enterprises that demand reliability, security, and scale.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition group">
-          <div class="w-12 h-12 rounded-xl bg-safari-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition">
-            <i data-lucide="refresh-cw" class="w-6 h-6 text-safari-400"></i>
-          </div>
-          <h4 class="font-bold text-base mb-2">Unified Data</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">All branch sales feed directly into your central accounting — no disjointed spreadsheets.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition group">
-          <div class="w-12 h-12 rounded-xl bg-safari-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition">
-            <i data-lucide="lock" class="w-6 h-6 text-safari-400"></i>
-          </div>
-          <h4 class="font-bold text-base mb-2">Role-Based Security</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">Granular permissions ensure staff only access what they need for their role.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition group">
-          <div class="w-12 h-12 rounded-xl bg-safari-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition">
-            <i data-lucide="cloud-lightning" class="w-6 h-6 text-safari-400"></i>
-          </div>
-          <h4 class="font-bold text-base mb-2">Zero Downtime</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">Offline-first — checkout stations keep processing even without internet.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition group">
-          <div class="w-12 h-12 rounded-xl bg-safari-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition">
-            <i data-lucide="users" class="w-6 h-6 text-safari-400"></i>
-          </div>
-          <h4 class="font-bold text-base mb-2">Hands-on Onboarding</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">Full system configuration, data migration, and comprehensive staff training.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="py-24 lg:py-32">
+  <!-- DEMO LEAD FORM -->
+  <section id="demo" class="py-24 bg-white border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-        <div class="space-y-6">
-          <span class="text-xs font-bold uppercase tracking-widest text-safari-600">About Safari</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">Building the Future of Business Operations</h2>
-          <p class="text-slate-500 leading-relaxed">
-            Safari Integrated Business Solutions was founded with a singular mission: to eliminate the fragmented software chaos that plagues modern enterprises. We believe every business deserves a unified, intelligent platform.
-          </p>
-          <p class="text-slate-500 leading-relaxed">
-            Our team of engineers and industry experts has spent years building mission-critical systems that power businesses across hospitality, retail, and enterprise sectors.
-          </p>
-          <div class="grid grid-cols-3 gap-6 pt-6">
-            <div class="stat-item text-center p-4 rounded-2xl bg-safari-50 border border-safari-100">
-              <p class="text-3xl font-extrabold text-safari-600">500+</p>
-              <p class="text-xs text-slate-500 mt-1 font-medium">Businesses Served</p>
-            </div>
-            <div class="stat-item text-center p-4 rounded-2xl bg-safari-50 border border-safari-100">
-              <p class="text-3xl font-extrabold text-safari-600">99.9%</p>
-              <p class="text-xs text-slate-500 mt-1 font-medium">Uptime SLA</p>
-            </div>
-            <div class="stat-item text-center p-4 rounded-2xl bg-safari-50 border border-safari-100">
-              <p class="text-3xl font-extrabold text-safari-600">24/7</p>
-              <p class="text-xs text-slate-500 mt-1 font-medium">Support</p>
-            </div>
-          </div>
-        </div>
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-br from-safari-100 to-transparent rounded-3xl blur-xl opacity-50"></div>
-          <div class="relative bg-white rounded-3xl p-10 border border-slate-200 shadow-xl space-y-8">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-safari-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-safari-600/20">
-                <i data-lucide="target" class="w-6 h-6"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-slate-900 text-lg">Our Mission</h4>
-                <p class="text-sm text-slate-500 mt-1 leading-relaxed">Empower businesses with integrated, intelligent software that eliminates silos and drives growth.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-                <i data-lucide="eye" class="w-6 h-6"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-slate-900 text-lg">Our Vision</h4>
-                <p class="text-sm text-slate-500 mt-1 leading-relaxed">To become the global standard for unified business management platforms.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-safari-500 to-safari-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-safari-600/20">
-                <i data-lucide="heart" class="w-6 h-6"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-slate-900 text-lg">Our Values</h4>
-                <p class="text-sm text-slate-500 mt-1 leading-relaxed">Reliability, transparency, and relentless innovation in everything we build.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="bg-slate-900 rounded-[2rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 100% 100%, var(--brand) 0%, transparent 60%);"></div>
 
-  <!-- LEAD CAPTURE & DEMO FORM -->
-  <section id="demo" class="py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="relative bg-slate-900 rounded-3xl overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-safari-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-safari-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="grid lg:grid-cols-2 gap-16 relative z-10">
 
-        <div class="relative p-8 sm:p-12 lg:p-16 grid lg:grid-cols-12 gap-12 items-center">
-
-          <div class="lg:col-span-6 space-y-6">
-            <span class="text-xs font-bold uppercase tracking-wider text-safari-400">Ready to Modernize?</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Request a Tailored Demo</h2>
-            <p class="text-slate-400 leading-relaxed">
-              Tell us about your business and our specialists will configure a live walkthrough of how Safari solves your challenges.
+          <div class="text-white space-y-6">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Transform Operations</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">Ready to see Safari in action?</h2>
+            <p class="text-slate-300 text-lg leading-relaxed">
+              Request a tailored walkthrough. Our technical specialists will demonstrate how Safari solves your specific workflow bottlenecks.
             </p>
-
-            <div class="space-y-4 pt-4">
-              <div class="flex items-center gap-4">
-                <div class="w-8 h-8 rounded-full bg-safari-500/20 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4 text-safari-400"></i>
-                </div>
-                <span class="text-sm text-slate-300">Complete live walkthrough of POS, PMS, or ERP</span>
+            <div class="space-y-4 pt-6 text-sm text-slate-300 font-medium">
+              <div class="flex items-center gap-3">
+                <div class="p-1 rounded-full bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                Personalized dashboard tour based on your hotel size
               </div>
-              <div class="flex items-center gap-4">
-                <div class="w-8 h-8 rounded-full bg-safari-500/20 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4 text-safari-400"></i>
-                </div>
-                <span class="text-sm text-slate-300">Migration strategy from your current software</span>
+              <div class="flex items-center gap-3">
+                <div class="p-1 rounded-full bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                Current software migration assessment
               </div>
-              <div class="flex items-center gap-4">
-                <div class="w-8 h-8 rounded-full bg-safari-500/20 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="check" class="w-4 h-4 text-safari-400"></i>
-                </div>
-                <span class="text-sm text-slate-300">Custom pricing quotation based on your scale</span>
+              <div class="flex items-center gap-3">
+                <div class="p-1 rounded-full bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2" style="color: var(--brand);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                Transparent setup and licensing quotation
               </div>
             </div>
           </div>
 
-          <!-- Form Card -->
-          <div class="lg:col-span-6 bg-white p-8 rounded-2xl text-slate-900 shadow-2xl">
-            <h3 class="text-lg font-bold text-slate-900 mb-6">Get Started</h3>
-            <form id="demo-form" class="space-y-4">
-              <div>
-                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Full Name</label>
-                <input type="text" name="name" required class="input-focus w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none transition" placeholder="John Doe" />
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-8 rounded-2xl shadow-xl">
+            <div id="demo-form-container">
+              <h3 class="text-2xl font-bold text-slate-900 mb-6">Book Your Consultation</h3>
+              <form id="demo-form" class="space-y-5">
                 <div>
-                  <label class="block text-xs font-semibold text-slate-600 mb-1.5">Work Email</label>
-                  <input type="email" name="email" required class="input-focus w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none transition" placeholder="john@company.com" />
+                  <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Work Name</label>
+                  <input required type="text" name="name" class="input-focus w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900" placeholder="John Doe" />
                 </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-600 mb-1.5">Phone Number</label>
-                  <input type="tel" name="phone" required pattern="[\+]?[0-9\s\-\(\)]{7,}" class="input-focus w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none transition" placeholder="+1 (555) 000-0000" />
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Work Email</label>
+                    <input required type="email" name="email" class="input-focus w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900" placeholder="name@hotel.com" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Property Size</label>
+                    <select required name="property-size" class="input-focus w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900">
+                      <option>Under 50 Rooms</option>
+                      <option>50 - 200 Rooms</option>
+                      <option>200+ Rooms</option>
+                      <option>Multi-Property / Chain</option>
+                    </select>
+                  </div>
                 </div>
+                <button type="submit" class="w-full py-4 rounded-lg text-white font-bold text-base transition-all mt-4 hover:opacity-90 shadow-lg" style="background-color: var(--brand);">
+                  Request Live Showcase
+                </button>
+                <p class="text-center text-xs text-slate-500 font-medium">We typically respond within 2 hours during business operations.</p>
+              </form>
+            </div>
+            <div id="demo-form-success" class="hidden h-full flex-col items-center justify-center py-12 text-center fade-in">
+              <div class="w-20 h-20 rounded-full flex items-center justify-center mb-6" style="background-color: var(--brand-light); color: var(--brand);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Primary Solution Needed</label>
-                <select name="solution" required class="input-focus w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none transition bg-white">
-                  <option value="">Select a solution...</option>
-                  <option value="pos">Safari POS (Point of Sale)</option>
-                  <option value="pms">Safari PMS (Property Management)</option>
-                  <option value="erp">Safari ERP (Enterprise Resource Planning)</option>
-                  <option value="all">Integrated All-in-One Suite</option>
-                </select>
-              </div>
-
-              <button id="submit-btn" type="submit" class="btn-glow w-full py-3.5 rounded-xl bg-safari-600 hover:bg-safari-700 text-white font-bold text-sm transition disabled:opacity-50 disabled:cursor-not-allowed mt-2">
-                Schedule My Consultation
-              </button>
-
-              <p id="form-msg" class="text-center text-sm text-safari-600 font-semibold hidden mt-3">
-                Thank you! Our team will reach out shortly.
-              </p>
-            </form>
+              <h3 class="text-2xl font-bold text-slate-900 mb-2">Request Received</h3>
+              <p class="text-slate-600 max-w-sm">Thank you. Our engineering desk has received your request and will contact you shortly to lock in a time.</p>
+            </div>
           </div>
 
         </div>
@@ -631,69 +590,54 @@
   </section>
 
   <!-- FOOTER -->
-  <footer id="contact" class="bg-slate-900 text-slate-400 pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
-        <!-- Brand -->
-        <div class="lg:col-span-2 space-y-4">
-          <img src="/logo-icon.png" alt="Safari" class="h-12 w-auto brightness-0 invert" style="filter: brightness(0) invert(1) opacity(0.9);" />
-          <p class="text-sm text-slate-500 leading-relaxed max-w-xs">
-            Empowering enterprises with modern POS, PMS, and ERP software architectures.
-          </p>
-          <div class="flex gap-3">
-            <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-safari-600 hover:border-safari-600 transition">
-              <i data-lucide="linkedin" class="w-4 h-4"></i>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-safari-600 hover:border-safari-600 transition">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-safari-600 hover:border-safari-600 transition">
-              <i data-lucide="facebook" class="w-4 h-4"></i>
-            </a>
-          </div>
+  <footer id="company" class="bg-slate-50 py-16 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 font-extrabold text-lg text-slate-900">
+          <img src="/logo-icon.png" alt="Safari" class="h-8 w-auto" />
+          Safari Solutions
         </div>
-
-        <!-- Products -->
-        <div>
-          <h5 class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Products</h5>
-          <ul class="space-y-3 text-sm">
-            <li><a href="#solutions" class="hover:text-white transition">Point of Sale (POS)</a></li>
-            <li><a href="#solutions" class="hover:text-white transition">Property Management (PMS)</a></li>
-            <li><a href="#solutions" class="hover:text-white transition">Enterprise Planning (ERP)</a></li>
-          </ul>
-        </div>
-
-        <!-- Company -->
-        <div>
-          <h5 class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Company</h5>
-          <ul class="space-y-3 text-sm">
-            <li><a href="#about" class="hover:text-white transition">About Safari</a></li>
-            <li><a href="#features" class="hover:text-white transition">Security & Compliance</a></li>
-            <li><a href="#contact" class="hover:text-white transition">Support Desk</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-          <h5 class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Get in Touch</h5>
-          <ul class="space-y-3 text-sm">
-            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-safari-500"></i> <span>sales@safarisolutions.com</span></li>
-            <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-safari-500"></i> <span>support@safarisolutions.com</span></li>
-          </ul>
-        </div>
+        <p class="text-sm text-slate-500 leading-relaxed max-w-xs">
+          Enterprise POS, PMS, and ERP software architectures engineered for total operational control.
+        </p>
       </div>
 
-      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-slate-600">&copy; 2026 Safari Integrated Business Solutions. All rights reserved.</p>
-        <div class="flex gap-6 text-xs text-slate-600">
-          <a href="#" class="hover:text-white transition">Privacy Policy</a>
-          <a href="#" class="hover:text-white transition">Terms of Service</a>
-        </div>
+      <div>
+        <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li><a href="#suite" class="hover:text-slate-900 transition">Point of Sale</a></li>
+          <li><a href="#suite" class="hover:text-slate-900 transition">Property Management</a></li>
+          <li><a href="#suite" class="hover:text-slate-900 transition">ERP & Accounting</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li><a href="#company" class="hover:text-slate-900 transition">About Us</a></li>
+          <li><a href="#usali" class="hover:text-slate-900 transition">USALI Compliance</a></li>
+          <li><a href="#demo" class="hover:text-slate-900 transition">Book a Demo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 mb-4">Contact</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>HQ: support@safari.inc</li>
+          <li>Sales: +1 (800) 555-0199</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+      <p>&copy; 2026 Safari Integrated Business Solutions. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 md:mt-0">
+        <a href="#" class="hover:text-slate-600 transition">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-600 transition">Terms of Service</a>
       </div>
     </div>
   </footer>
 
-  <!-- Vite JS -->
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
