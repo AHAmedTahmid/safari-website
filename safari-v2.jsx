@@ -54,7 +54,7 @@ export default function SafariWebsite() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <div className="text-sm font-semibold text-slate-600 hidden lg:block">Sales: +1 (800) 555-0199</div>
+            <div className="text-sm font-semibold text-slate-600 hidden lg:block">Sales: +88 016 74914391 </div>
             <a
               href="#demo"
               className="px-5 py-2.5 rounded-lg text-white font-semibold text-sm transition shadow-sm hover:shadow"
@@ -550,7 +550,7 @@ export default function SafariWebsite() {
             <h4 className="font-bold text-slate-900 mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-slate-600">
               <li>HQ: support@safari.inc</li>
-              <li>Sales: +1 (800) 555-0199</li>
+              <li>Sales: +88 016 74914391 </li>
             </ul>
           </div>
         </div>
